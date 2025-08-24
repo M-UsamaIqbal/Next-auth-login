@@ -1,0 +1,116 @@
+
+:root {
+  --bg: #f3ecff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent-start: #7c3aed; /* purple-600 */
+  --accent-end: #9333ea;   /* purple-700 */
+  --panel-radius: 28px;
+  --field-radius: 12px;
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+  --border: rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(135deg, #efe9ff 0%, #f1efff 35%, #f2e8ff 70%, #f6edff 100%);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+/* Login Panel wrapper (to match the Figma rounded canvas) */
+.panel {
+  background: radial-gradient(1200px 800px at 75% 25%, rgba(249, 168, 255, 0.55) 0%, rgba(167, 139, 250, 0.45) 35%, rgba(240, 240, 255, 0.85) 80%),
+              linear-gradient(135deg, #f2f0ff, #f7f2ff);
+  border-radius: var(--panel-radius);
+  padding: 36px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+  min-height: calc(100vh - 48px);
+}
+
+.title-lg {
+  font-size: 48px;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  letter-spacing: .2px;
+  font-weight: 700;
+}
+
+.muted { color: var(--muted); font-size: 16px; margin-bottom: 24px; max-width: 520px; }
+
+.stack { display: flex; flex-direction: column; gap: 14px; max-width: 420px; }
+
+.input-wrap {
+  position: relative;
+}
+.icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: .6;
+}
+.input {
+  width: 100%;
+  padding: 14px 14px 14px 42px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--field-radius);
+  outline: none;
+}
+.input:focus {
+  border-color: #c4b5fd;
+  box-shadow: 0 0 0 4px rgba(167,139,250,.25);
+}
+
+.error { color: #e11d48; font-size: 12px; min-height: 14px; }
+
+.btn {
+  height: 46px;
+  border-radius: var(--field-radius);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+}
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+
+.signup { font-size: 14px; color: var(--muted); }
+
+/* Right visual side */
+.visual {
+  display: grid; place-items: center;
+}
+.visual img {
+  width: 540px; max-width: 100%; height: auto; display: block;
+  filter: drop-shadow(0 30px 50px rgba(80,0,140,.35));
+}
+.logo {
+  margin-top: 12px;
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.logo sup { font-weight: 500; font-size: 20px; }
+
+/* Dashboard simple look */
+.card { background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-lg); }
+.row { display: flex; gap: 12px; align-items: center; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .grid2 { grid-template-columns: 1fr; gap: 32px; padding: 24px 0; }
+  .title-lg { font-size: 38px; }
+  .panel { padding: 24px; }
+}
